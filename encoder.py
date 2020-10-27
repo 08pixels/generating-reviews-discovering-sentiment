@@ -1,14 +1,17 @@
 import time
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 
 from tqdm import tqdm
-from sklearn.externals import joblib
+import joblib
 
 from utils import HParams, preprocess, iter_data
 
 global nloaded
 nloaded = 0
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior() 
 
 
 def load_params(shape, dtype, *args, **kwargs):
